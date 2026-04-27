@@ -1,1 +1,10 @@
-see below
+{
+  "meta": {
+    "version": "0.1",
+    "created": "2026-03-27",
+    "client": "Sample Retail Insurance Firm",
+    "description": "Sample dataset for AI Opportunity Mapping Tool.",
+    "data_model_version": "0.2"
+  },
+  "note": "Full sample data is embedded in visualisation/ai_opportunity_map.jsx. This file is a placeholder — see the JSX source for the complete 30-use-case retail insurance dataset."
+}
