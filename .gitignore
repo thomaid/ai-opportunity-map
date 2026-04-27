@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+env/
+
+# Node
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Temporary
+*.tmp
+*.bak
+
+# Client data (never commit real client files)
+data/*_client_*.json
+data/*_client_*.xlsx
+published/
