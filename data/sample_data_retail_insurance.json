@@ -3,8 +3,568 @@
     "version": "0.1",
     "created": "2026-03-27",
     "client": "Sample Retail Insurance Firm",
-    "description": "Sample dataset for AI Opportunity Mapping Tool.",
+    "description": "Sample dataset for AI Opportunity Mapping Tool. Retail insurance context. ~30 use cases across 6 business domains, 8 implementation enablers.",
     "data_model_version": "0.2"
   },
-  "note": "Full sample data is embedded in visualisation/ai_opportunity_map.jsx. This file is a placeholder — see the JSX source for the complete 30-use-case retail insurance dataset."
+
+  "framework_config": {
+    "impact_factors": [
+      { "id": "IF01", "name": "Revenue growth",              "weight": 20, "description": "Direct contribution to top-line revenue — new income streams, higher conversion, increased wallet share." },
+      { "id": "IF02", "name": "Cost reduction / efficiency", "weight": 20, "description": "Reduction in operating cost, headcount requirement, processing time or error rates." },
+      { "id": "IF03", "name": "Risk reduction",              "weight": 20, "description": "Reduction in regulatory, operational, underwriting, claims or reputational risk exposure." },
+      { "id": "IF04", "name": "Customer experience",         "weight": 15, "description": "Improvement in policyholder satisfaction, retention, NPS or perceived service quality." },
+      { "id": "IF05", "name": "Strategic differentiation",   "weight": 15, "description": "Contribution to competitive positioning, brand, market share or capability that is hard to replicate." },
+      { "id": "IF06", "name": "Employee experience",         "weight": 10, "description": "Improvement in staff productivity, satisfaction, or reduction in low-value workload." }
+    ],
+    "readiness_factors": [
+      { "id": "RF01", "name": "Data availability & quality",        "weight": 20, "description": "Whether the data required to power this use case exists, is accessible, sufficiently clean, and usable within regulatory and consent constraints." },
+      { "id": "RF02", "name": "Technical infrastructure",           "weight": 15, "description": "Whether cloud, compute, storage, API connectivity and integration architecture required are in place or readily established." },
+      { "id": "RF03", "name": "Governance & compliance readiness",  "weight": 20, "description": "Whether appropriate AI policies, model risk frameworks, regulatory approvals and audit trails are in place for this type of use case." },
+      { "id": "RF04", "name": "Organisational & process readiness", "weight": 15, "description": "Whether business processes, roles, handoff points and change management capability needed to embed this use case are mature enough." },
+      { "id": "RF05", "name": "Skills & capability",                "weight": 10, "description": "Whether internal skills (technical, domain, AI literacy) needed to build, operate and govern this use case are available or accessible." },
+      { "id": "RF06", "name": "Implementation effort",              "weight": 10, "description": "Inverse of implementation complexity — high score means lower effort/cost/risk. Acts as a practical friction factor." },
+      { "id": "RF07", "name": "Executive & stakeholder support",    "weight": 10, "description": "Whether there is clear sponsorship, budget commitment and stakeholder alignment for this use case." }
+    ],
+    "investment_themes": ["Efficiency", "Intelligence", "Engagement", "Foundations"],
+    "business_domains": [
+      "Personal Lines Underwriting",
+      "Claims",
+      "Customer & Distribution",
+      "Finance & Actuarial",
+      "Compliance & Risk",
+      "Operations & IT"
+    ],
+    "visualisation_zones": {
+      "explore":  { "label": "Explore",  "x_min": 1.0, "x_max": 2.4 },
+      "consider": { "label": "Consider", "x_min": 2.5, "x_max": 3.4 },
+      "deliver":  { "label": "Deliver",  "x_min": 3.5, "x_max": 5.0 }
+    }
+  },
+
+  "implementation_enablers": [
+    {
+      "id": "EN01",
+      "name": "Unified data platform & MLOps infrastructure",
+      "description": "A modern cloud-based data platform with data lake, feature store and MLOps tooling, providing a single foundation for ingesting, transforming and serving data to AI models at scale.",
+      "effort_scale": "XL",
+      "category": "Data & Infrastructure",
+      "completion_level": 1,
+      "factor_uplifts": [
+        { "factor_id": "RF01", "max_uplift": 2 },
+        { "factor_id": "RF02", "max_uplift": 2 },
+        { "factor_id": "RF06", "max_uplift": 1 }
+      ]
+    },
+    {
+      "id": "EN02",
+      "name": "Data governance & metadata management programme",
+      "description": "Establishing data ownership, quality standards, a business glossary and metadata catalogue across the organisation's core data assets. Foundation for trustworthy AI outputs.",
+      "effort_scale": "L",
+      "category": "Data & Infrastructure",
+      "completion_level": 2,
+      "factor_uplifts": [
+        { "factor_id": "RF01", "max_uplift": 2 },
+        { "factor_id": "RF03", "max_uplift": 1 },
+        { "factor_id": "RF04", "max_uplift": 1 }
+      ]
+    },
+    {
+      "id": "EN03",
+      "name": "AI governance framework & model risk policy",
+      "description": "An enterprise AI acceptable use policy, model risk management framework (covering model validation, monitoring and documentation), and a defined regulatory engagement plan for AI.",
+      "effort_scale": "M",
+      "category": "Governance & Compliance",
+      "completion_level": 1,
+      "factor_uplifts": [
+        { "factor_id": "RF03", "max_uplift": 3 },
+        { "factor_id": "RF07", "max_uplift": 1 }
+      ]
+    },
+    {
+      "id": "EN04",
+      "name": "Cloud infrastructure & API modernisation",
+      "description": "Migration of core policy, claims and customer systems to cloud-native architecture with open APIs, enabling integration with AI tooling and third-party data sources.",
+      "effort_scale": "XL",
+      "category": "Data & Infrastructure",
+      "completion_level": 2,
+      "factor_uplifts": [
+        { "factor_id": "RF02", "max_uplift": 3 },
+        { "factor_id": "RF06", "max_uplift": 2 }
+      ]
+    },
+    {
+      "id": "EN05",
+      "name": "AI skills & literacy programme",
+      "description": "Structured upskilling across three tiers: executive AI literacy, practitioner training for business and operations staff, and technical capability development for data and engineering teams.",
+      "effort_scale": "M",
+      "category": "Skills & Capability",
+      "completion_level": 1,
+      "factor_uplifts": [
+        { "factor_id": "RF05", "max_uplift": 3 },
+        { "factor_id": "RF07", "max_uplift": 1 },
+        { "factor_id": "RF04", "max_uplift": 1 }
+      ]
+    },
+    {
+      "id": "EN06",
+      "name": "Unstructured data & document intelligence platform",
+      "description": "A vector database and document processing pipeline capable of ingesting, chunking and embedding policy documents, claims notes, correspondence and regulatory text for use in RAG-based AI applications.",
+      "effort_scale": "L",
+      "category": "Data & Infrastructure",
+      "completion_level": 0,
+      "factor_uplifts": [
+        { "factor_id": "RF01", "max_uplift": 2 },
+        { "factor_id": "RF02", "max_uplift": 1 },
+        { "factor_id": "RF06", "max_uplift": 1 }
+      ]
+    },
+    {
+      "id": "EN07",
+      "name": "Customer data & consent management",
+      "description": "A unified customer data platform with consent management, identity resolution across channels, and GDPR-compliant data lineage. Prerequisite for personalisation and customer-facing AI use cases.",
+      "effort_scale": "L",
+      "category": "Data & Infrastructure",
+      "completion_level": 1,
+      "factor_uplifts": [
+        { "factor_id": "RF01", "max_uplift": 2 },
+        { "factor_id": "RF03", "max_uplift": 1 },
+        { "factor_id": "RF06", "max_uplift": 1 }
+      ]
+    },
+    {
+      "id": "EN08",
+      "name": "Process standardisation & workflow automation foundation",
+      "description": "Documentation and standardisation of core operational processes (claims handling, underwriting referral, customer onboarding), with a low-code automation layer to support human-AI handoff design.",
+      "effort_scale": "L",
+      "category": "Organisational & Process",
+      "completion_level": 2,
+      "factor_uplifts": [
+        { "factor_id": "RF04", "max_uplift": 3 },
+        { "factor_id": "RF06", "max_uplift": 1 }
+      ]
+    }
+  ],
+
+  "use_cases": [
+    {
+      "id": "UC01",
+      "name": "Automated first notification of loss (FNOL) triage",
+      "description": "Use NLP to classify incoming claims by type, complexity and urgency at point of first contact, routing straightforward claims to automated fast-track and complex claims to specialist handlers.",
+      "business_domain": "Claims",
+      "key_stakeholders": ["Claims Director", "Operations Director", "CTO"],
+      "investment_theme": "Efficiency",
+      "current_state": "Identified",
+      "regulatory_risk_classification": "Medium",
+      "enables": ["UC02", "UC03"],
+      "implementation_enablers": ["EN01", "EN04", "EN08"],
+      "impact_scores":    { "IF01": 2, "IF02": 5, "IF03": 3, "IF04": 4, "IF05": 3, "IF06": 4 },
+      "readiness_scores": { "RF01": 3, "RF02": 2, "RF03": 3, "RF04": 2, "RF05": 2, "RF06": 3, "RF07": 3 }
+    },
+    {
+      "id": "UC02",
+      "name": "AI-assisted claims liability assessment",
+      "description": "Provide claims handlers with an AI-generated liability recommendation based on policy terms, incident details and historical case outcomes, with supporting evidence surfaced from similar past claims.",
+      "business_domain": "Claims",
+      "key_stakeholders": ["Claims Director", "Chief Risk Officer", "Head of Legal"],
+      "investment_theme": "Intelligence",
+      "current_state": "Hypothetical",
+      "regulatory_risk_classification": "High",
+      "enables": [],
+      "implementation_enablers": ["EN01", "EN02", "EN03", "EN06"],
+      "impact_scores":    { "IF01": 2, "IF02": 4, "IF03": 5, "IF04": 3, "IF05": 4, "IF06": 3 },
+      "readiness_scores": { "RF01": 2, "RF02": 2, "RF03": 1, "RF04": 2, "RF05": 2, "RF06": 2, "RF07": 3 }
+    },
+    {
+      "id": "UC03",
+      "name": "Claims fraud detection — motor",
+      "description": "Apply machine learning to motor claims data to score each claim for fraud indicators at point of FNOL, flagging high-risk cases for specialist investigation before settlement.",
+      "business_domain": "Claims",
+      "key_stakeholders": ["Claims Director", "Chief Risk Officer", "Head of Counter-Fraud"],
+      "investment_theme": "Intelligence",
+      "current_state": "Piloted",
+      "regulatory_risk_classification": "High",
+      "enables": ["UC04"],
+      "implementation_enablers": ["EN01", "EN02", "EN03"],
+      "impact_scores":    { "IF01": 2, "IF02": 4, "IF03": 5, "IF04": 2, "IF05": 3, "IF06": 3 },
+      "readiness_scores": { "RF01": 3, "RF02": 3, "RF03": 2, "RF04": 3, "RF05": 3, "RF06": 3, "RF07": 4 }
+    },
+    {
+      "id": "UC04",
+      "name": "Claims fraud detection — home & contents",
+      "description": "Extend the motor fraud detection model to home and contents claims, incorporating additional signals such as social media and address history to improve detection rates.",
+      "business_domain": "Claims",
+      "key_stakeholders": ["Claims Director", "Head of Counter-Fraud"],
+      "investment_theme": "Intelligence",
+      "current_state": "Hypothetical",
+      "regulatory_risk_classification": "High",
+      "enables": [],
+      "implementation_enablers": ["EN01", "EN02", "EN03"],
+      "impact_scores":    { "IF01": 2, "IF02": 4, "IF03": 5, "IF04": 2, "IF05": 2, "IF06": 3 },
+      "readiness_scores": { "RF01": 2, "RF02": 3, "RF03": 2, "RF04": 3, "RF05": 2, "RF06": 3, "RF07": 3 }
+    },
+    {
+      "id": "UC05",
+      "name": "Automated claims document extraction & summarisation",
+      "description": "Use document intelligence to extract key information from unstructured claims documents (medical reports, police reports, invoices) and present structured summaries to handlers, reducing manual review time.",
+      "business_domain": "Claims",
+      "key_stakeholders": ["Claims Director", "Operations Director"],
+      "investment_theme": "Efficiency",
+      "current_state": "Identified",
+      "regulatory_risk_classification": "Low",
+      "enables": ["UC02"],
+      "implementation_enablers": ["EN06", "EN08"],
+      "impact_scores":    { "IF01": 1, "IF02": 5, "IF03": 2, "IF04": 3, "IF05": 2, "IF06": 5 },
+      "readiness_scores": { "RF01": 3, "RF02": 3, "RF03": 3, "RF04": 3, "RF05": 3, "RF06": 4, "RF07": 3 }
+    },
+    {
+      "id": "UC06",
+      "name": "Predictive underwriting risk scoring — motor",
+      "description": "Replace or augment actuarial rating factors with an ML model that incorporates telematics, third-party data and behavioural signals to produce more accurate individual risk scores for motor policies.",
+      "business_domain": "Personal Lines Underwriting",
+      "key_stakeholders": ["Chief Underwriting Officer", "Chief Actuary", "Chief Risk Officer"],
+      "investment_theme": "Intelligence",
+      "current_state": "Hypothetical",
+      "regulatory_risk_classification": "High",
+      "enables": ["UC07"],
+      "implementation_enablers": ["EN01", "EN02", "EN03"],
+      "impact_scores":    { "IF01": 4, "IF02": 3, "IF03": 5, "IF04": 2, "IF05": 5, "IF06": 2 },
+      "readiness_scores": { "RF01": 2, "RF02": 2, "RF03": 1, "RF04": 2, "RF05": 2, "RF06": 2, "RF07": 3 }
+    },
+    {
+      "id": "UC07",
+      "name": "Predictive underwriting risk scoring — home",
+      "description": "Extend predictive risk scoring to home insurance, incorporating property data, flood risk, subsidence and claims history signals to improve accuracy of home underwriting decisions.",
+      "business_domain": "Personal Lines Underwriting",
+      "key_stakeholders": ["Chief Underwriting Officer", "Chief Actuary"],
+      "investment_theme": "Intelligence",
+      "current_state": "Hypothetical",
+      "regulatory_risk_classification": "High",
+      "enables": [],
+      "implementation_enablers": ["EN01", "EN02", "EN03"],
+      "impact_scores":    { "IF01": 4, "IF02": 3, "IF03": 5, "IF04": 2, "IF05": 4, "IF06": 2 },
+      "readiness_scores": { "RF01": 2, "RF02": 2, "RF03": 1, "RF04": 2, "RF05": 2, "RF06": 2, "RF07": 3 }
+    },
+    {
+      "id": "UC08",
+      "name": "Underwriting referral assist",
+      "description": "Surface relevant policy, case law and underwriting guidelines to underwriters reviewing non-standard risks, using RAG over the firm's internal knowledge base to reduce research time and improve consistency.",
+      "business_domain": "Personal Lines Underwriting",
+      "key_stakeholders": ["Chief Underwriting Officer", "Head of Technical Underwriting"],
+      "investment_theme": "Efficiency",
+      "current_state": "Identified",
+      "regulatory_risk_classification": "Medium",
+      "enables": [],
+      "implementation_enablers": ["EN06", "EN05"],
+      "impact_scores":    { "IF01": 2, "IF02": 4, "IF03": 3, "IF04": 2, "IF05": 3, "IF06": 4 },
+      "readiness_scores": { "RF01": 3, "RF02": 3, "RF03": 3, "RF04": 3, "RF05": 2, "RF06": 3, "RF07": 3 }
+    },
+    {
+      "id": "UC09",
+      "name": "Automated policy endorsement processing",
+      "description": "Use NLP and rules-based AI to process routine mid-term policy changes (address updates, vehicle substitutions, named driver additions) without human intervention, reducing processing cost and turnaround time.",
+      "business_domain": "Operations & IT",
+      "key_stakeholders": ["Operations Director", "CTO", "Customer Services Director"],
+      "investment_theme": "Efficiency",
+      "current_state": "Identified",
+      "regulatory_risk_classification": "Low",
+      "enables": [],
+      "implementation_enablers": ["EN04", "EN08"],
+      "impact_scores":    { "IF01": 1, "IF02": 5, "IF03": 2, "IF04": 3, "IF05": 2, "IF06": 4 },
+      "readiness_scores": { "RF01": 4, "RF02": 2, "RF03": 3, "RF04": 2, "RF05": 3, "RF06": 3, "RF07": 3 }
+    },
+    {
+      "id": "UC10",
+      "name": "AI-powered customer self-service & virtual assistant",
+      "description": "Deploy a conversational AI assistant for customer-facing channels handling policy queries, renewal guidance, claims status updates and basic amendments, reducing contact centre volume.",
+      "business_domain": "Customer & Distribution",
+      "key_stakeholders": ["Customer Services Director", "CMO", "CTO"],
+      "investment_theme": "Engagement",
+      "current_state": "Identified",
+      "regulatory_risk_classification": "Medium",
+      "enables": [],
+      "implementation_enablers": ["EN04", "EN07", "EN05"],
+      "impact_scores":    { "IF01": 3, "IF02": 4, "IF03": 2, "IF04": 5, "IF05": 4, "IF06": 3 },
+      "readiness_scores": { "RF01": 3, "RF02": 2, "RF03": 2, "RF04": 2, "RF05": 2, "RF06": 2, "RF07": 3 }
+    },
+    {
+      "id": "UC11",
+      "name": "Personalised renewal pricing & retention propensity",
+      "description": "Use ML to predict renewal propensity and price sensitivity at individual policyholder level, enabling personalised retention interventions and optimised renewal pricing that balances retention against margin.",
+      "business_domain": "Customer & Distribution",
+      "key_stakeholders": ["CMO", "Chief Actuary", "Customer Services Director"],
+      "investment_theme": "Intelligence",
+      "current_state": "Hypothetical",
+      "regulatory_risk_classification": "High",
+      "enables": [],
+      "implementation_enablers": ["EN01", "EN02", "EN03", "EN07"],
+      "impact_scores":    { "IF01": 5, "IF02": 3, "IF03": 3, "IF04": 4, "IF05": 5, "IF06": 2 },
+      "readiness_scores": { "RF01": 2, "RF02": 2, "RF03": 1, "RF04": 2, "RF05": 2, "RF06": 2, "RF07": 3 }
+    },
+    {
+      "id": "UC12",
+      "name": "Next best action for inbound customer contacts",
+      "description": "Real-time AI recommendation engine for contact centre agents, suggesting the most appropriate cross-sell, retention or service action based on customer profile, history and current interaction context.",
+      "business_domain": "Customer & Distribution",
+      "key_stakeholders": ["CMO", "Customer Services Director"],
+      "investment_theme": "Engagement",
+      "current_state": "Hypothetical",
+      "regulatory_risk_classification": "Medium",
+      "enables": [],
+      "implementation_enablers": ["EN01", "EN07", "EN04"],
+      "impact_scores":    { "IF01": 4, "IF02": 2, "IF03": 2, "IF04": 4, "IF05": 4, "IF06": 3 },
+      "readiness_scores": { "RF01": 2, "RF02": 2, "RF03": 2, "RF04": 2, "RF05": 2, "RF06": 2, "RF07": 3 }
+    },
+    {
+      "id": "UC13",
+      "name": "Complaint root cause analysis & early warning",
+      "description": "Apply NLP to complaints data to identify emerging themes, root causes and systemic issues in near real-time, enabling proactive remediation before issues escalate to regulatory attention.",
+      "business_domain": "Compliance & Risk",
+      "key_stakeholders": ["Chief Risk Officer", "Customer Services Director", "CEO"],
+      "investment_theme": "Intelligence",
+      "current_state": "Identified",
+      "regulatory_risk_classification": "Medium",
+      "enables": [],
+      "implementation_enablers": ["EN06", "EN02"],
+      "impact_scores":    { "IF01": 2, "IF02": 3, "IF03": 5, "IF04": 3, "IF05": 3, "IF06": 3 },
+      "readiness_scores": { "RF01": 3, "RF02": 3, "RF03": 3, "RF04": 3, "RF05": 2, "RF06": 3, "RF07": 4 }
+    },
+    {
+      "id": "UC14",
+      "name": "Regulatory change impact assessment",
+      "description": "Use AI to monitor incoming regulatory publications and automatically assess their impact on the firm's policies, procedures and products, reducing the manual effort of regulatory horizon scanning.",
+      "business_domain": "Compliance & Risk",
+      "key_stakeholders": ["Chief Risk Officer", "Head of Compliance", "CEO"],
+      "investment_theme": "Efficiency",
+      "current_state": "Identified",
+      "regulatory_risk_classification": "Low",
+      "enables": [],
+      "implementation_enablers": ["EN06", "EN03"],
+      "impact_scores":    { "IF01": 1, "IF02": 4, "IF03": 4, "IF04": 1, "IF05": 3, "IF06": 4 },
+      "readiness_scores": { "RF01": 3, "RF02": 3, "RF03": 4, "RF04": 3, "RF05": 3, "RF06": 3, "RF07": 4 }
+    },
+    {
+      "id": "UC15",
+      "name": "Automated conduct risk monitoring",
+      "description": "Apply AI to call recordings, chat logs and written communications to monitor for conduct risk indicators, replacing manual sampling with comprehensive coverage and real-time flagging.",
+      "business_domain": "Compliance & Risk",
+      "key_stakeholders": ["Chief Risk Officer", "Head of Compliance"],
+      "investment_theme": "Intelligence",
+      "current_state": "Hypothetical",
+      "regulatory_risk_classification": "High",
+      "enables": [],
+      "implementation_enablers": ["EN01", "EN03", "EN06"],
+      "impact_scores":    { "IF01": 1, "IF02": 4, "IF03": 5, "IF04": 2, "IF05": 3, "IF06": 3 },
+      "readiness_scores": { "RF01": 2, "RF02": 2, "RF03": 2, "RF04": 2, "RF05": 2, "RF06": 2, "RF07": 3 }
+    },
+    {
+      "id": "UC16",
+      "name": "AI-assisted actuarial reserving",
+      "description": "Use ML models to augment traditional actuarial reserving methods, providing more granular and timely loss development forecasts and reducing the cycle time for reserve reviews.",
+      "business_domain": "Finance & Actuarial",
+      "key_stakeholders": ["Chief Actuary", "CFO", "Chief Risk Officer"],
+      "investment_theme": "Intelligence",
+      "current_state": "Hypothetical",
+      "regulatory_risk_classification": "High",
+      "enables": [],
+      "implementation_enablers": ["EN01", "EN02", "EN03"],
+      "impact_scores":    { "IF01": 2, "IF02": 3, "IF03": 5, "IF04": 1, "IF05": 4, "IF06": 3 },
+      "readiness_scores": { "RF01": 2, "RF02": 2, "RF03": 1, "RF04": 2, "RF05": 2, "RF06": 2, "RF07": 3 }
+    },
+    {
+      "id": "UC17",
+      "name": "Finance process automation — reconciliations",
+      "description": "Apply intelligent automation to routine finance reconciliation processes, using AI to match transactions, identify exceptions and generate exception reports, significantly reducing manual effort at period end.",
+      "business_domain": "Finance & Actuarial",
+      "key_stakeholders": ["CFO", "Head of Finance Operations"],
+      "investment_theme": "Efficiency",
+      "current_state": "Identified",
+      "regulatory_risk_classification": "Low",
+      "enables": [],
+      "implementation_enablers": ["EN04", "EN08"],
+      "impact_scores":    { "IF01": 1, "IF02": 5, "IF03": 2, "IF04": 1, "IF05": 2, "IF06": 4 },
+      "readiness_scores": { "RF01": 4, "RF02": 2, "RF03": 3, "RF04": 2, "RF05": 3, "RF06": 3, "RF07": 3 }
+    },
+    {
+      "id": "UC18",
+      "name": "Broker relationship scoring & segmentation",
+      "description": "Use ML to score brokers on quality, growth potential and strategic fit, enabling more targeted account management, improved resource allocation and data-driven broker development conversations.",
+      "business_domain": "Customer & Distribution",
+      "key_stakeholders": ["Chief Distribution Officer", "CMO"],
+      "investment_theme": "Intelligence",
+      "current_state": "Identified",
+      "regulatory_risk_classification": "Low",
+      "enables": [],
+      "implementation_enablers": ["EN01", "EN02"],
+      "impact_scores":    { "IF01": 4, "IF02": 2, "IF03": 2, "IF04": 3, "IF05": 3, "IF06": 3 },
+      "readiness_scores": { "RF01": 3, "RF02": 3, "RF03": 3, "RF04": 3, "RF05": 3, "RF06": 3, "RF07": 3 }
+    },
+    {
+      "id": "UC19",
+      "name": "Intelligent document generation — policy & renewals",
+      "description": "Use generative AI to produce personalised, plain-English policy documents, renewal letters and key facts documents, replacing templated outputs with dynamically generated content tailored to each customer.",
+      "business_domain": "Customer & Distribution",
+      "key_stakeholders": ["CMO", "Customer Services Director", "Head of Compliance"],
+      "investment_theme": "Engagement",
+      "current_state": "Identified",
+      "regulatory_risk_classification": "Medium",
+      "enables": [],
+      "implementation_enablers": ["EN07", "EN05", "EN03"],
+      "impact_scores":    { "IF01": 2, "IF02": 3, "IF03": 2, "IF04": 4, "IF05": 3, "IF06": 3 },
+      "readiness_scores": { "RF01": 3, "RF02": 3, "RF03": 3, "RF04": 3, "RF05": 3, "RF06": 3, "RF07": 3 }
+    },
+    {
+      "id": "UC20",
+      "name": "Claims repair network optimisation",
+      "description": "Use ML to optimise the assignment of claims to approved repairers based on cost, quality, capacity, location and customer preference, improving cycle time and customer satisfaction while reducing claims costs.",
+      "business_domain": "Claims",
+      "key_stakeholders": ["Claims Director", "Operations Director"],
+      "investment_theme": "Efficiency",
+      "current_state": "Identified",
+      "regulatory_risk_classification": "Low",
+      "enables": [],
+      "implementation_enablers": ["EN01", "EN08"],
+      "impact_scores":    { "IF01": 1, "IF02": 4, "IF03": 2, "IF04": 4, "IF05": 3, "IF06": 3 },
+      "readiness_scores": { "RF01": 3, "RF02": 3, "RF03": 3, "RF04": 2, "RF05": 3, "RF06": 3, "RF07": 3 }
+    },
+    {
+      "id": "UC21",
+      "name": "Telematics data exploitation — UBI pricing",
+      "description": "Build usage-based insurance (UBI) pricing capability by ingesting and modelling telematics data at scale, enabling more accurate risk segmentation and competitive pricing for low-mileage and low-risk drivers.",
+      "business_domain": "Personal Lines Underwriting",
+      "key_stakeholders": ["Chief Underwriting Officer", "Chief Actuary", "CMO"],
+      "investment_theme": "Intelligence",
+      "current_state": "Hypothetical",
+      "regulatory_risk_classification": "High",
+      "enables": [],
+      "implementation_enablers": ["EN01", "EN02", "EN03", "EN04"],
+      "impact_scores":    { "IF01": 5, "IF02": 2, "IF03": 4, "IF04": 3, "IF05": 5, "IF06": 2 },
+      "readiness_scores": { "RF01": 1, "RF02": 1, "RF03": 1, "RF04": 2, "RF05": 2, "RF06": 1, "RF07": 3 }
+    },
+    {
+      "id": "UC22",
+      "name": "HR & workforce planning intelligence",
+      "description": "Use predictive analytics to model workforce demand, attrition risk and skills gaps, enabling more proactive workforce planning and targeted retention interventions for key roles.",
+      "business_domain": "Operations & IT",
+      "key_stakeholders": ["CHRO", "CFO"],
+      "investment_theme": "Intelligence",
+      "current_state": "Identified",
+      "regulatory_risk_classification": "Low",
+      "enables": [],
+      "implementation_enablers": ["EN01", "EN02"],
+      "impact_scores":    { "IF01": 1, "IF02": 3, "IF03": 2, "IF04": 1, "IF05": 2, "IF06": 5 },
+      "readiness_scores": { "RF01": 3, "RF02": 3, "RF03": 3, "RF04": 3, "RF05": 3, "RF06": 3, "RF07": 3 }
+    },
+    {
+      "id": "UC23",
+      "name": "AI co-pilot for contact centre agents",
+      "description": "Real-time AI assistant for contact centre staff providing suggested responses, policy lookups, next-step guidance and compliance prompts during live customer interactions, reducing handling time and improving consistency.",
+      "business_domain": "Customer & Distribution",
+      "key_stakeholders": ["Customer Services Director", "Operations Director"],
+      "investment_theme": "Efficiency",
+      "current_state": "Identified",
+      "regulatory_risk_classification": "Medium",
+      "enables": ["UC12"],
+      "implementation_enablers": ["EN05", "EN06", "EN04"],
+      "impact_scores":    { "IF01": 2, "IF02": 4, "IF03": 3, "IF04": 4, "IF05": 3, "IF06": 5 },
+      "readiness_scores": { "RF01": 3, "RF02": 2, "RF03": 3, "RF04": 3, "RF05": 2, "RF06": 3, "RF07": 3 }
+    },
+    {
+      "id": "UC24",
+      "name": "Catastrophe (CAT) event claims surge management",
+      "description": "AI-driven triage and resource allocation system for high-volume claims events (storms, floods), automatically prioritising vulnerable customers, allocating handlers and coordinating repair network capacity.",
+      "business_domain": "Claims",
+      "key_stakeholders": ["Claims Director", "Operations Director", "CEO"],
+      "investment_theme": "Engagement",
+      "current_state": "Hypothetical",
+      "regulatory_risk_classification": "High",
+      "enables": [],
+      "implementation_enablers": ["EN01", "EN04", "EN08"],
+      "impact_scores":    { "IF01": 2, "IF02": 3, "IF03": 4, "IF04": 5, "IF05": 4, "IF06": 3 },
+      "readiness_scores": { "RF01": 2, "RF02": 1, "RF03": 2, "RF04": 1, "RF05": 2, "RF06": 2, "RF07": 3 }
+    },
+    {
+      "id": "UC25",
+      "name": "Pricing optimisation — competitive positioning",
+      "description": "Ingest competitor pricing data and market signals to dynamically inform pricing decisions, enabling more responsive positioning while maintaining target loss ratios. Works alongside actuarial rating models.",
+      "business_domain": "Personal Lines Underwriting",
+      "key_stakeholders": ["Chief Underwriting Officer", "Chief Actuary", "CMO"],
+      "investment_theme": "Intelligence",
+      "current_state": "Hypothetical",
+      "regulatory_risk_classification": "High",
+      "enables": [],
+      "implementation_enablers": ["EN01", "EN02", "EN03"],
+      "impact_scores":    { "IF01": 5, "IF02": 2, "IF03": 3, "IF04": 2, "IF05": 5, "IF06": 2 },
+      "readiness_scores": { "RF01": 2, "RF02": 2, "RF03": 1, "RF04": 2, "RF05": 2, "RF06": 2, "RF07": 3 }
+    },
+    {
+      "id": "UC26",
+      "name": "Internal knowledge management assistant",
+      "description": "RAG-based internal assistant enabling staff to query policy documents, process guides, regulatory requirements and product information in natural language, reducing time spent searching for information.",
+      "business_domain": "Operations & IT",
+      "key_stakeholders": ["CTO", "Operations Director", "CHRO"],
+      "investment_theme": "Efficiency",
+      "current_state": "Identified",
+      "regulatory_risk_classification": "Low",
+      "enables": ["UC08", "UC23"],
+      "implementation_enablers": ["EN06", "EN05"],
+      "impact_scores":    { "IF01": 1, "IF02": 4, "IF03": 2, "IF04": 2, "IF05": 2, "IF06": 5 },
+      "readiness_scores": { "RF01": 3, "RF02": 3, "RF03": 3, "RF04": 3, "RF05": 2, "RF06": 4, "RF07": 3 }
+    },
+    {
+      "id": "UC27",
+      "name": "Vulnerable customer identification & routing",
+      "description": "Apply ML to customer interaction data to identify indicators of vulnerability (financial difficulty, health issues, bereavement) and route customers to appropriately trained staff with relevant support resources.",
+      "business_domain": "Customer & Distribution",
+      "key_stakeholders": ["Customer Services Director", "Chief Risk Officer", "Head of Compliance"],
+      "investment_theme": "Engagement",
+      "current_state": "Identified",
+      "regulatory_risk_classification": "High",
+      "enables": [],
+      "implementation_enablers": ["EN07", "EN03", "EN05"],
+      "impact_scores":    { "IF01": 1, "IF02": 2, "IF03": 5, "IF04": 4, "IF05": 3, "IF06": 2 },
+      "readiness_scores": { "RF01": 2, "RF02": 3, "RF03": 2, "RF04": 3, "RF05": 2, "RF06": 3, "RF07": 4 }
+    },
+    {
+      "id": "UC28",
+      "name": "Supplier & third-party risk monitoring",
+      "description": "Automated monitoring of key suppliers and outsourced service providers using AI to ingest news, financial data and operational indicators, providing early warning of third-party risk events.",
+      "business_domain": "Compliance & Risk",
+      "key_stakeholders": ["Chief Risk Officer", "CFO", "Operations Director"],
+      "investment_theme": "Intelligence",
+      "current_state": "Hypothetical",
+      "regulatory_risk_classification": "Medium",
+      "enables": [],
+      "implementation_enablers": ["EN06", "EN02"],
+      "impact_scores":    { "IF01": 1, "IF02": 3, "IF03": 4, "IF04": 1, "IF05": 3, "IF06": 3 },
+      "readiness_scores": { "RF01": 3, "RF02": 3, "RF03": 3, "RF04": 3, "RF05": 2, "RF06": 3, "RF07": 3 }
+    },
+    {
+      "id": "UC29",
+      "name": "Automated MI & management reporting",
+      "description": "Use AI to automate the production of routine management information packs, combining data from multiple systems and generating narrative commentary, freeing analyst time for higher-value work.",
+      "business_domain": "Finance & Actuarial",
+      "key_stakeholders": ["CFO", "CEO", "Operations Director"],
+      "investment_theme": "Efficiency",
+      "current_state": "Identified",
+      "regulatory_risk_classification": "Low",
+      "enables": [],
+      "implementation_enablers": ["EN01", "EN04"],
+      "impact_scores":    { "IF01": 1, "IF02": 5, "IF03": 2, "IF04": 1, "IF05": 2, "IF06": 4 },
+      "readiness_scores": { "RF01": 3, "RF02": 2, "RF03": 3, "RF04": 3, "RF05": 3, "RF06": 3, "RF07": 3 }
+    },
+    {
+      "id": "UC30",
+      "name": "Proactive churn prevention — personal lines",
+      "description": "Identify policyholders at high risk of lapse or non-renewal before the renewal window, triggering targeted outreach and personalised retention offers based on predicted price sensitivity and loyalty drivers.",
+      "business_domain": "Customer & Distribution",
+      "key_stakeholders": ["CMO", "Customer Services Director", "Chief Actuary"],
+      "investment_theme": "Engagement",
+      "current_state": "Hypothetical",
+      "regulatory_risk_classification": "Medium",
+      "enables": [],
+      "implementation_enablers": ["EN01", "EN07", "EN02"],
+      "impact_scores":    { "IF01": 4, "IF02": 2, "IF03": 2, "IF04": 4, "IF05": 3, "IF06": 2 },
+      "readiness_scores": { "RF01": 2, "RF02": 2, "RF03": 2, "RF04": 2, "RF05": 2, "RF06": 2, "RF07": 3 }
+    }
+  ]
 }
